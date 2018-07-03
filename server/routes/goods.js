@@ -7,9 +7,13 @@ db.connect();
 router.use((req, res, next) => {
   console.log('请求时间：', new Date().toLocaleString());
   res.header('Access-Control-Allow-Origin', '*');
+  // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  // res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+  // res.header("X-Powered-By",' 3.2.1')
+  // res.header("Content-Type", "application/json;charset=utf-8");
   next();
 });
-//  goods路由  skip(10)跳过10条数据，limit(3)只查询三条数据
+//  goods路由  skip(10)跳过10条数据，limit(3)只查询三条数据 --关联的数据库 + find({属性名：{$regex:查询内容}，function(err,datas){})
 router.route('/')
   .get((req, res) => {
     console.log(req.query);
