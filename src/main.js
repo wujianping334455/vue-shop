@@ -5,12 +5,11 @@ import App from './App'
 import router from './router'
 import VueLazyload  from 'vue-lazyload';
 import infiniteScroll from  'vue-infinite-scroll';
-
-Vue.config.productionTip = false;
+Vue.use(infiniteScroll);
  // try  默认： 1 ， 后来升级为 attempt
 Vue.use(VueLazyload, {loading: 'static/img/loading-svg/loading-bars.svg',try: 3});
-Vue.use(infiniteScroll);
 
+Vue.config.productionTip = false;
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

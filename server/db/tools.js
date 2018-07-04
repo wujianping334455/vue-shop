@@ -34,65 +34,126 @@ module.exports = {
         const collection = db.collection(collectionName);
         collection.insertMany([
             {
-              "productId":"10031",
+              "productId":"10001",
               "productName":"小米空气净化器 2",
-              "salePrice":"699",
+              "salePrice":699,
               "productImage":"小米空气净化器 2.jpg"
             },
             {
-              "productId":"10032",
+              "productId":"10002",
               "productName":"米家空气净化器Pro",
-              "salePrice":"1499",
+              "salePrice":1499,
               "productImage":"米家空气净化器Pro.jpg"
             },
             {
-              "productId":"10033",
+              "productId":"10003",
               "productName":"米家PM2.5检测仪",
-              "salePrice":"399",
+              "salePrice":399,
               "productImage":"米家PM2.5检测仪.jpg"
             },
             {
-              "productId":"10024",
+              "productId":"10004",
               "productName":"九号平衡车",
-              "salePrice":"1999",
+              "salePrice":1999,
               "productImage":"九号平衡车.jpg"
             },
             {
-              "productId":"10035",
+              "productId":"10005",
               "productName":"小米路由器 3",
-              "salePrice":"139",
+              "salePrice":139,
               "productImage":"小米路由器 3.jpg"
             },
             {
-              "productId":"10036",
+              "productId":"10006",
               "productName":"米家压力 IH 电饭煲",
-              "salePrice":"999",
+              "salePrice":999,
               "productImage":"米家压力 IH 电饭煲.jpg"
             },
             {
-              "productId":"10037",
+              "productId":"10007",
               "productName":"米家IH电饭煲",
-              "salePrice":"399",
+              "salePrice":399,
               "productImage":"米家IH电饭煲.jpg"
             },
             {
-              "productId":"10028",
+              "productId":"10008",
               "productName":"米家恒温电水壶",
-              "salePrice":"199",
+              "salePrice":199,
               "productImage":"米家恒温电水壶.jpg"
             },
             {
-              "productId":"10039",
+              "productId":"10009",
               "productName":"米家小白智能摄像机",
-              "salePrice":"399",
+              "salePrice":399,
               "productImage":"米家小白智能摄像机.jpg"
             },
             {
-              "productId":"10040",
+              "productId":"10010",
               "productName":"Yeelight床头灯",
-              "salePrice":"249",
+              "salePrice":249,
               "productImage":"Yeelight床头灯.jpg"
-            }], (err, result) => {
+            },
+            {
+                "productId":"10011",
+                "productName":"小米空气净化器 2",
+                "salePrice":699,
+                "productImage":"小米空气净化器 2.jpg"
+              },
+              {
+                "productId":"10012",
+                "productName":"米家空气净化器Pro",
+                "salePrice":1499,
+                "productImage":"米家空气净化器Pro.jpg"
+              },
+              {
+                "productId":"10013",
+                "productName":"米家PM2.5检测仪",
+                "salePrice":399,
+                "productImage":"米家PM2.5检测仪.jpg"
+              },
+              {
+                "productId":"10014",
+                "productName":"九号平衡车",
+                "salePrice":1999,
+                "productImage":"九号平衡车.jpg"
+              },
+              {
+                "productId":"10015",
+                "productName":"小米路由器 3",
+                "salePrice":139,
+                "productImage":"小米路由器 3.jpg"
+              },
+              {
+                "productId":"10016",
+                "productName":"米家压力 IH 电饭煲",
+                "salePrice":999,
+                "productImage":"米家压力 IH 电饭煲.jpg"
+              },
+              {
+                "productId":"10017",
+                "productName":"米家IH电饭煲",
+                "salePrice":399,
+                "productImage":"米家IH电饭煲.jpg"
+              },
+              {
+                "productId":"10018",
+                "productName":"米家恒温电水壶",
+                "salePrice":199,
+                "productImage":"米家恒温电水壶.jpg"
+              },
+              {
+                "productId":"10019",
+                "productName":"米家小白智能摄像机",
+                "salePrice":399,
+                "productImage":"米家小白智能摄像机.jpg"
+              },
+              {
+                "productId":"10020",
+                "productName":"Yeelight床头灯",
+                "salePrice":249,
+                "productImage":"Yeelight床头灯.jpg"
+              }
+        ], (err, result) => {
             if (err) throw err;
             success(result);
         });

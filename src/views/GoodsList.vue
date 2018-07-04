@@ -109,18 +109,33 @@ export default {
     this.getGoodsList();
   }
   ,methods:{
-    getGoodsList(){
+    getGoodsList(flag){
       var param = {
         page:this.page,
         pageSize:this.pageSize,
         sort:this.sortFlag?1:-1
-      }
+      };
+      this.loading = true;
       axios.get('http://localhost:3000/goods',{
         params : param
       }).then(res=>{
-        console.log(res.data);
         const result = res.data;
-        this.goodsList = result.data;
+        this.loading = false;
+        if(result.status=="200"){
+            if(flag){
+                this.goodsList = this.goodsList.concat(result.data);
+                if(result.length==0){
+                    this.busy = true;
+                }else{
+                    this.busy = false;
+                }
+            }else{
+                this.goodsList = result.data;
+                this.busy = false;
+            }
+        }else {
+            this.goodsList = [];
+        }
       });
     },
     setPriceFilter(param){
@@ -150,7 +165,7 @@ export default {
       this.busy = true;
       setTimeout(()=>{
         this.page++;
-        this.getGoodsList();
+        this.getGoodsList(true);
       },500)
     }
   }
