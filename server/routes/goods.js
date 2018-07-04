@@ -42,6 +42,8 @@ router.route('/')
       });
     });
   });
+
+// 单条记录
 router.route('/:id')
   .get((req, res) => {
     console.log("查询单条goods:",req.params);
@@ -80,5 +82,17 @@ router.route('/:id')
         data:result
       });
     });
-  })
+  });
+// 批量操作
+router.route('/list').post((req, res) => {
+  console.log("批量创建goods:",req.body);
+  const params = req.body;
+  db.insertMany('goods',params, (result) => {
+    res.json({
+      status:'200',
+      data:result
+    });
+  });
+});
+
 module.exports = router;
