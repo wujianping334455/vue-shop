@@ -98,11 +98,19 @@ module.exports = {
         });
     },
     // 查
-    find(collectionName, model, success) {
+    find(collectionName, model,success) {
         const db = client.db(dbName);
         const collection = db.collection(collectionName);
-        // 参数可以不传，也可以传一个对象，或者一个字符串
-        collection.find(model).toArray((err, docs) => {
+        let page = parseInt(model.page);
+        let pageSize = parseInt(model.pageSize);
+        let sort = parseInt(model.sort); // 只有1和-1
+        let skip = (page-1)*pageSize;
+        // 删除
+        delete model.page;
+        delete model.pageSize;
+        delete model.sort; 
+        // limit查询条数
+        collection.find(model).sort({'salePrice':sort}).skip(skip).limit(pageSize).toArray((err, docs) => {
             if (err) throw err;
             success(docs);
         });

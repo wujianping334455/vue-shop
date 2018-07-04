@@ -4,12 +4,12 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import VueLazyload  from 'vue-lazyload';
-Vue.config.productionTip = false;
+import infiniteScroll from  'vue-infinite-scroll';
 
-Vue.use(VueLazyload, {
-  loading: 'static/img/loading-svg/loading-bars.svg',
-  try: 3 // default 1
-});
+Vue.config.productionTip = false;
+ // try  默认： 1 ， 后来升级为 attempt
+Vue.use(VueLazyload, {loading: 'static/img/loading-svg/loading-bars.svg',try: 3});
+Vue.use(infiniteScroll);
 
 /* eslint-disable no-new */
 new Vue({

@@ -6,8 +6,8 @@
         <div class="container">
             <div class="filter-nav">
                 <span class="sortby">排序:</span>
-                <a href="javascript:void(0)" class="default cur">默认</a>
-                <a href="javascript:void(0)" class="price">价格 <svg class="icon icon-arrow-short"><use xlink:href="#icon-arrow-short"></use></svg></a>
+                <a href="javascript:void(0)" class="default cur" @click="defualtGoods">默认</a>
+                <a href="javascript:void(0)" class="price" :class="{'sort-up':sortFlag}" @click="sortGoods">价格 <svg class="icon icon-arrow-short"><use xlink:href="#icon-arrow-short"></use></svg></a>
                 <a href="javascript:void(0)" class="filterby" @click.stop="showFilterPop">筛选</a>
             </div>
             <div class="accessory-result">
@@ -39,6 +39,12 @@
                                 </div>
                             </li>
                         </ul>
+                    </div>
+                    <div class="view-more-normal"
+                        v-infinite-scroll="loadMore"
+                        infinite-scroll-disabled="busy"
+                        infinite-scroll-distance="20">
+                        <img src="./../../static/img/loading-svg/loading-spinning-bubbles.svg" v-show="loading">
                     </div>
                 </div>
             </div>
@@ -91,6 +97,11 @@ export default {
       ,priceChecked:'all'
       ,filterBy:false
       ,overLayFlag:false
+      ,page : 1
+      ,pageSize : 10
+      ,sortFlag:true,
+      busy:true,
+      loading:false
     }
   }
   ,components:{NavHeader,NavFooter,NavBreader}
@@ -99,7 +110,14 @@ export default {
   }
   ,methods:{
     getGoodsList(){
-      axios.get('http://localhost:3000/goods').then(res=>{
+      var param = {
+        page:this.page,
+        pageSize:this.pageSize,
+        sort:this.sortFlag?1:-1
+      }
+      axios.get('http://localhost:3000/goods',{
+        params : param
+      }).then(res=>{
         console.log(res.data);
         const result = res.data;
         this.goodsList = result.data;
@@ -117,6 +135,23 @@ export default {
       this.filterBy=false;
       this.overLayFlag=false;
       this.mdShowCart = false;
+    }
+    ,defualtGoods(){
+      this.sortFlag = true;
+      this.page = 1;
+      this.getGoodsList();
+    }
+    ,sortGoods(){
+      this.sortFlag = !this.sortFlag;
+      this.page = 1;
+      this.getGoodsList();
+    }
+    ,loadMore(){
+      this.busy = true;
+      setTimeout(()=>{
+        this.page++;
+        this.getGoodsList();
+      },500)
     }
   }
 }
