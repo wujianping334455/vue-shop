@@ -4,15 +4,15 @@
             <div class="footer__secondary">
                 <div class="footer__inner">
                     <div class="footer__secondary__nav">
-                        <span>Copyright©2013-2017 dongnaoedu.com All Rights Reserved.</span>
+                        <span>Copyright©2017-2018 dongnaoedu.com All Rights Reserved.</span>
                         <a href="https://dongnaoedu.com/">
                             关于我们
                         </a>
                         <a href="http://dongnao.ke.qq.com/#tab=1&category=-1">
-                            腾讯课堂&&动脑学院
+                            wujianping
                         </a>
                         <a href="https://dongnaoedu.com/index.html">
-                            版权所有 2008-2017 湘ICP备16006411号-1
+                            版权所有 2018-2018 wujianping
                         </a>
                     </div>
                 </div>
