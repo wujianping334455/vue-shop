@@ -107,7 +107,13 @@ const webpackConfig = merge(baseWebpackConfig, {
       children: true,
       minChunks: 3
     }),
-
+    new webpack.optimize.CommonsChunkPlugin({
+      name:'app',
+      async: 'used-twice',
+      minChunks: (module, count) => (
+        count >= 2
+      ),
+    }),
     // copy custom static assets
     new CopyWebpackPlugin([
       {

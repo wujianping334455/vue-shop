@@ -1,8 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import GoodsList from '@/views/GoodsList'
-import Cart from '@/views/Cart'
+// import GoodsList from '@/views/GoodsList'
+// import Cart from '@/views/Cart'
+
+const GoodsList = () => import('@/views/GoodsList');
+const Cart = () => import('@/views/Cart');
 
 Vue.use(Router)
 
